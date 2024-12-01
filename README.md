@@ -66,21 +66,21 @@ The primary objective of this project is to save researchers valuable time by au
 Run the script via the command line with the following options:
 
 ```bash
-python script.py --folder <folder_name> --query <search_query> --amount <number_of_papers> --start_year <start_year> --end_year <end_year>
+python search.py --folder <folder_name> --query <search_query> --amount <number_of_papers> --start_year <start_year> --end_year <end_year>
 ```
 
 ### Example Command
 To search for papers on "multilingual large language models explainability," retrieve 30 papers, and filter results from 2022 to 2024, run:
 ```bash
-python script.py --folder multilingual_intrepretability --query "multilingual large language models explainability" --amount 30 --start_year 2022 --end_year 2024
+python search.py --folder multilingual_intrepretability --query "multilingual large language models explainability" --amount 30 --start_year 2022 --end_year 2024
 ```
 
 ### Arguments
-- `--folder`: Name of the folder to save search results. Default is `multilingual_intrepretability`.
-- `--query`: The search query in natural language. This argument is required.
+- `--folder`: Name of the folder to save search results. **This argument is required.**
+- `--query`: The search query in natural language. This **argument is required.**
 - `--amount`: Number of papers to retrieve. Default is `30`.
 - `--start_year`: Starting year for filtering papers. Default is `2022`.
-- `--end_year`: Ending year for filtering papers. Default is `2024`.
+- `--end_year`: Ending year for filtering papers. Default is `2025`.
 
 ---
 
@@ -111,5 +111,8 @@ python script.py --folder multilingual_intrepretability --query "multilingual la
 
 3. 🔲 **Integration with PaperQA**:
    - Work is in progress to fully enable natural language querying of papers using the PaperQA library.
+
+4. 🔲 **Improved Database Integration**:
+   - Enhance integration with databases to allow users to mark papers they do not want and automatically delete them from the folder.
 
 Feel free to contribute to the project by submitting issues or pull requests! 🚀
