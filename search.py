@@ -34,12 +34,12 @@ def filter_papers(papers, start_year, end_year):
     """
     Filters papers by removing those outside the specified year range.
     """
-    amount_deleted = delete_old_files(
+    amount_deleted, list_of_papers_to_delete = delete_old_files(
         papers,
         range=(start_year, end_year)
     )
     print(f"Deleted {amount_deleted} papers outside the range {start_year}-{end_year}")
-    return papers
+    return {key: value for key, value in papers.items() if key not in list_of_papers_to_delete}
 
 def generate_and_save_db(papers, folder, db_name):
     """

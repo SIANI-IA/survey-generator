@@ -22,16 +22,17 @@ def delete_paper(key: str) -> bool:
         return False
 
 
-def delete_old_files(papers, range: tuple = (2023, 2024)) -> int:
+def delete_old_files(papers, range: tuple = (2023, 2024)) -> Tuple[int, list[str]]:
     aumount_deleted = 0
+    id_to_delete = []
     for key, value in tqdm(papers.items(), desc="Deleting old papers"):
         if int(value['year']) < range[0] or int(value['year']) > range[1]:
             if delete_paper(key):
                 aumount_deleted += 1
                 # delete the paper from the papers dictionary
-                del papers[key]
+                id_to_delete.append(key)
 
-    return aumount_deleted
+    return aumount_deleted, id_to_delete
 
 def generate_dataframe(papers, db: str = None) -> Tuple[pd.DataFrame, int]:
 
